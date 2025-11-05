@@ -33,9 +33,9 @@ Write an assembly language program in 8086 to search for a given number in an ar
 
 ```asm
 DATA SEGMENT
-    array DB 10, 20, 30, 40, 50    ; Array elements
-    n     DB 5                     ; Number of elements
-    key   DB ?                     ; Number to search (input by user)
+    array DB 10, 20, 30, 40, 50    
+    n     DB 5                    
+    key   DB ?                    
     msg1  DB 0DH,0AH,'NUMBER FOUND$',0
     msg2  DB 0DH,0AH,'NUMBER NOT FOUND$',0
     msg3  DB 'Enter number to search (0-99): $',0
@@ -53,33 +53,29 @@ START:
     MOV AH, 09H
     INT 21H
 
-    ; ---- Read first digit ----
     MOV AH, 1
     INT 21H
-    SUB AL, 30H        ; Convert ASCII to number
-    MOV BL, AL         ; Store as tens digit
-
-    ; ---- Read second digit ----
+    SUB AL, 30H       
+    MOV BL, AL        
     MOV AH, 1
     INT 21H
-    CMP AL, 0DH        ; If user pressed ENTER, skip
+    CMP AL, 0DH        
     JE SINGLE_DIGIT
 
     SUB AL, 30H
     MOV BH, AL
     MOV AL, BL
     MOV BL, 10
-    MUL BL             ; AL = tens * 10
-    ADD AL, BH         ; AL = tens + ones
+    MUL BL            
+    ADD AL, BH         
     JMP STORE_KEY
 
 SINGLE_DIGIT:
-    MOV AL, BL         ; Only one digit entered
+    MOV AL, BL        
 
 STORE_KEY:
-    MOV key, AL        ; Store input in key
+    MOV key, AL        
 
-    ; ---- Search in array ----
     MOV CL, n
     MOV CH, 0
     LEA SI, array
