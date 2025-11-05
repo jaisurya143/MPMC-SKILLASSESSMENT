@@ -107,7 +107,7 @@ END START
 
 ```
 ## OUTPUT IMAGE FROM MASM SOFTWARE
-<img width="644" height="385" alt="image" src="https://github.com/user-attachments/assets/a646a7d4-5ba1-416d-a54c-1c3af6f55741" />
+<img width="633" height="393" alt="image" src="https://github.com/user-attachments/assets/5d8911d8-39d0-4a7c-87c8-f206108561cd" />
 <img width="638" height="416" alt="image" src="https://github.com/user-attachments/assets/7ba41de5-22ae-4b28-9441-07a386f47376" />
 
 ## RESULT
